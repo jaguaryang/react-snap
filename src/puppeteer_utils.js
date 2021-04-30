@@ -183,8 +183,9 @@ const crawl = async opt => {
     // we are converting both to string to be sure
     // Port can be null, therefore we need the null check
     const isOnAppPort = port && port.toString() === options.port.toString();
-    if (pathname.includes('nn') || pathname.includes('tree')) {
-      console.log(pathname)
+
+    if (pathname.includes('series') || pathname.includes('tree')) {
+      console.log('Jack', pathname)
       return;
     }
 
