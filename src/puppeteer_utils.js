@@ -90,7 +90,7 @@ const enableLogging = opt => {
         route = response._request
           .headers()
           .referer.replace(`http://localhost:${options.port}`, "");
-      } catch (e) {}
+      } catch (e) { }
       console.log(
         `️️️⚠️  warning at ${route}: got ${response.status()} HTTP code for ${response.url()}`
       );
@@ -183,7 +183,10 @@ const crawl = async opt => {
     // we are converting both to string to be sure
     // Port can be null, therefore we need the null check
     const isOnAppPort = port && port.toString() === options.port.toString();
-    if (pathname.includes('nn') || pathname.includes('tree')) return;
+    if (pathname.includes('nn') || pathname.includes('tree')) {
+      console.log(pathname)
+      return;
+    }
 
     if (hostname === "localhost" && isOnAppPort && !uniqueUrls.has(newUrl) && !streamClosed) {
       uniqueUrls.add(newUrl);
